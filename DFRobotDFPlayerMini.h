@@ -31,7 +31,7 @@
 #define DFPLAYER_DEVICE_FLASH 5
 
 #define DFPLAYER_RECEIVED_LENGTH 10
-#define DFPLAYER_SEND_LENGTH 10
+#define DFPLAYER_SEND_LENGTH 8  //Changed from 10 to remove checksum bytes
 
 //#define _DEBUG
 
@@ -72,7 +72,7 @@ class DFRobotDFPlayerMini {
   unsigned long _timeOutDuration = 500;
   
   uint8_t _received[DFPLAYER_RECEIVED_LENGTH];
-  uint8_t _sending[DFPLAYER_SEND_LENGTH] = {0x7E, 0xFF, 06, 00, 01, 00, 00, 00, 00, 0xEF};
+  uint8_t _sending[DFPLAYER_SEND_LENGTH] = {0x7E, 0xFF, 06, 00, 01, 00, 00, 0xEF};  //Removed checksum bytes for 8 byte length
   
   uint8_t _receivedIndex=0;
 
