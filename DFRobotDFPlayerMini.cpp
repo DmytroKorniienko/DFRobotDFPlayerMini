@@ -63,7 +63,8 @@ void DFRobotDFPlayerMini::sendStack(uint8_t command){
 void DFRobotDFPlayerMini::sendStack(uint8_t command, uint16_t argument){
   _sending[Stack_Command] = command;
   uint16ToArray(argument, _sending+Stack_Parameter);
-  uint16ToArray(calculateCheckSum(_sending), _sending+Stack_CheckSum);
+  //Remove Checksum from sendstack
+  //uint16ToArray(calculateCheckSum(_sending), _sending+Stack_CheckSum);
   sendStack();
 }
 
