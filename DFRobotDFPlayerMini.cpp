@@ -160,6 +160,9 @@ void DFRobotDFPlayerMini::parseStack(){
 
   switch (_handleCommand) {
     case 0x3D:
+    case 0x3C: // usb
+    case 0x4B: // usb on MH2024K-16SS
+    case 0x4C: // micro sd on MH2024K-16SS
       handleMessage(DFPlayerPlayFinished, _handleParameter);
       break;
     case 0x3F:
@@ -192,7 +195,7 @@ void DFRobotDFPlayerMini::parseStack(){
     case 0x40:
       handleMessage(DFPlayerError, _handleParameter);
       break;
-    case 0x3C:
+    //case 0x3C:
     case 0x3E:
     case 0x42:
     case 0x43:
@@ -202,8 +205,8 @@ void DFRobotDFPlayerMini::parseStack(){
     case 0x47:
     case 0x48:
     case 0x49:
-    case 0x4B:
-    case 0x4C:
+    //case 0x4B:
+    //case 0x4C:
     case 0x4D:
     case 0x4E:
     case 0x4F:
